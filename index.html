@@ -5,10 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
+    <script defer src="js/script.js"></script>
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div id="tirarBolas"> 
+            <h1>Bola de Bingo</h1><br>
+            <div class="bola"><p id="bolaSacada"></p></div>    
+        </div>
+        <div id="bolasDisponibles"></div>
+    </div>
+    <h2>Cartón</h2>
+    <div id="carton"></div>
+    <button id="btnJugar" onclick="jugar()" style="visibility: hidden;">Jugar</button>
+    <button onclick="colocarBolas()">Colocar Bolas</button>
+    <script src="jquery/jquery-3.6.0.min.js"></script>
 </body>
 </html>
