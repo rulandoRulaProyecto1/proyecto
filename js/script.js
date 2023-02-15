@@ -28,6 +28,7 @@ function obtenerAleatorio() {
     } while (yaJugada == true)
     bolasJugadas.push(numBola);
     return numBola;
+}
 
 function eliminarBolaSacada(numBola) {
     //Eliminar la bola sacada de las disponibles
@@ -52,7 +53,7 @@ function tacharBolaSacada(numBola) {
             comprobarAciertos(numBola)
         }
     })
-
+}
 /*jose*/
 function comprobarAciertos(numeroBola) {
     let numFilas = 4;
@@ -79,6 +80,7 @@ function comprobarAciertos(numeroBola) {
     if (aciertosTotales == tamañoCarton) {
         alert("Jugador1: Bingo!!!")
     }
+}
 
 function colocarBolas() {
     borrarTodo() //Primero eliminamos todas las bolas si las hay
