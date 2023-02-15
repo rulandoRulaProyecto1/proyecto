@@ -23,4 +23,5 @@ function comprobarAciertos(numeroBola) {
     if (aciertosTotales == tamañoCarton) {
         alert("Jugador1: Bingo!!!")
     }
+    
 }
