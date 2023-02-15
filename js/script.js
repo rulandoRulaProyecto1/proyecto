@@ -1,13 +1,26 @@
-/*Al pulsar el botón “Colocar Bolas” cogerá del bombo todas las bolas y las colocará en la
-parte superior. Hay que tener en cuenta que el tamaño del bombo será variable, por lo
-que para las pruebas pondremos por ejemplo 20 bolas y posteriormente podremos
-modificar este valor a 100. Al pulsar el botón “Colocar Bolas” hará que se muestre el
-botón Jugar que estaba oculto al principio.*/
-function colocarBolas() {
-    borrarTodo() //Primero eliminamos todas las bolas si las hay
-    for (let i = 1; i <= tamañoBombo; i++) {
-        $("#bolasDisponibles").append("<div class='bola'><p>" + i + "</p></div>")
+function comprobarAciertos(numeroBola) {
+    let numFilas = 4;
+    let columnaNumeroBola = carton.indexOf(numeroBola)
+    if (columnaNumeroBola != -1) {
+        columnaNumeroBola = Math.floor((columnaNumeroBola) / numFilas)
     }
-    $("#btnJugar").css("visibility", "visible")
-    crearCarton();
+    let aciertos = 0
+    let aciertosTotales = 0
+    for (let indiceBola in carton) {
+        if (bolasJugadas.includes(carton[indiceBola])) {
+            aciertosTotales++;
+        }
+        //Mientras esté en la misma línea, voy sumando para ver si he hecho línea
+        if ((bolasJugadas.includes(carton[indiceBola])) && (columnaNumeroBola == Math.floor(indiceBola / numFilas))) {
+            aciertos++
+            if (aciertos == 4) {
+                alert("Jugador1: Linea!!!")
+            }
+        } else {
+            aciertos = 0
+        }
+    }
+    if (aciertosTotales == tamañoCarton) {
+        alert("Jugador1: Bingo!!!")
+    }
 }
