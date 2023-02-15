@@ -1,5 +1,24 @@
-/*Una vez colocadas las bolas en el bombo, se creará un cartón cogiendo aleatoriamente
-bolas del bombo hasta un tamaño indicado, podemos empezar con un tamaño de
-cartón de 16 y éste se podrá ampliar en un futuro. Hay que tener en cuenta que las
-bolas del cartón no se pueden repetir.*/
-function rellenarCarton() {}
+function eliminarBolaSacada(numBola) {
+    //Eliminar la bola sacada de las disponibles
+    let listadoBolas = $("#bolasDisponibles").find("div")
+    listadoBolas.each(function() {
+        if ($(this).text() == numBola) {
+            $(this).remove()
+            tacharBolaSacada(numBola)
+            return
+        }
+    })
+}
+
+function tacharBolaSacada(numBola) {
+    let listadoBolas = $("#carton").find("div")
+    let tachado = "<div id='equis'><img src='images/equis.png' alt=''></div>"
+   
+    listadoBolas.each(function() {
+        if ($(this).text() == numBola) {
+            $(this).css("background-color", "#0000FF")
+            $(this).append(tachado)
+            comprobarAciertos(numBola)
+        }
+    })
+}
